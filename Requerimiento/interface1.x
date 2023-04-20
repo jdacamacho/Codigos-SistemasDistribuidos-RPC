@@ -2,17 +2,18 @@
 
 const MAXNOM = 20;
 
-struct nodo_usuario{	
+struct nodo_cliente{	
 	char login[MAXNOM];	
-	char contrasenia[MAXNOM];	
+	char contrasenia[MAXNOM];
+	int identificacionClnt;
+	char nombre[MAXNOM];
+	char apellido[MAXNOM];
+		
 };
 
-
-program gestion_usuarios{
-	version gestion_usuarios_version_1{
-		bool registrarAdministrador(nodo_usuario objUsuario)=1;
-		bool registrarCliente(nodo_usuario objUsuario)=2;
-		bool enviarDatosSesionAdministrador(nodo_usuario objUsuario)=3;	
-		bool enviarDatosSesionCliente(nodo_usuario objUsuario)=4;	
+program gestion_cliente{
+	version gestion_cliente_version_1{
+		bool registrarCliente(nodo_cliente objUsuario)=1;
+		bool enviarDatosSesionCliente(nodo_cliente objUsuario)=2;	
 	}=1;
 }=0x20000001;

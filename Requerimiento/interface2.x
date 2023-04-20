@@ -1,24 +1,18 @@
-/*Declaracion de datos a transferir entre el cliente y el servidor*/
+/*Definicion de las operaciones que se pueden realizar*/
 
-/*Declaracion de constantes*/
 const MAXNOM = 20;
 
-/*Declaracion de la estructura que permite almacenar los datos de un producto*/
-struct nodo_producto{
-	int codigoProducto;
+struct nodo_administrador{	
+	char login[MAXNOM];	
+	char contrasenia[MAXNOM];
+	int identificacionAdm;
 	char nombre[MAXNOM];	
-	float valor;	
+	char apellido[MAXNOM];	
 };
 
-/*Definicion de las operaciones que se pueden realizar*/
-program gestion_productos{
-	version gestion_productos_version_1{
-		bool administradorRegistrarProductoOfertar(nodo_producto objProducto)=1;
-		void listarProductosOfertarCLiente()=2;
-		bool abrirCerrarSubasta(int codigoProducto)=3;
-		void listarProductosCLiente()=4;
-		nodo_producto consultarProducto(string nombre)=5;
-		void consultarDatosProductoActualSubastando()=6;
-		void ofrecerOferta()=7;
+program gestion_administrador{
+	version gestion_administrador_version_2{
+		bool registrarAdministrador(nodo_administrador objUsuario)=1;
+		bool enviarDatosSesionAdministrador(nodo_administrador objUsuario)=2;	
 	}=2;
 }=0x20000002;
